@@ -1,51 +1,28 @@
-h1{ 
-    color: red;
+/* Fondo y texto general */
+body{
+    background-color: black;
+    color: white;
+    font-family: Arial;
 }
 
+/* Título principal */
+h1{
+    text-align: center;
+}
+
+/* Subtítulos */
+h2{
+    text-align: center;
+}
+
+/* Párrafos */
 p{
+    text-align: center;
 }
 
-button{
-}
-
-section{
-}
-
+/* Imágenes */
 img{
-}
-
-div{
-}
-
-table{
-}
-
-iframe{
-}
-
-footer{
-}
-
-a{
-}
-
-.tabla-horario{
-}
-
-.grid-planes{
-}
-
-.plan{
-}
-
-.boton{
-}
-
-.galeria{
-}
-
-.mapa{
-}
-
-.redes-sociales{
+    display: block;
+    margin: auto;
+    width: 300px;
 }
