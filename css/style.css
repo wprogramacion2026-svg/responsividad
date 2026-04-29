@@ -564,4 +564,21 @@ footer p{
     margin: 6px;
     font-size: 14px;
     color: #aaaaaa;
+} 
+/* 
+    Logo del negocio.
+    Se muestra arriba a la izquierda, más alargado
+    y sin quedarse flotando al bajar la página.
+*/
+.logo-negocio{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 240px;
+    height: 95px;
+    object-fit: cover;
+    object-position: center;
+    border: none;
+    border-radius: 10px;
+    margin: 0;
 }
