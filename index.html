@@ -3,25 +3,45 @@
 
 <head>
     <!-- Permite usar caracteres especiales como tildes y la letra ñ -->
-    <meta charset="UTF-8">   
+    <meta charset="UTF-8">
+
+    <!-- CRÍTICO: hace que la página se adapte al ancho real del dispositivo -->
+    <!-- Sin esto, los celulares fingen ser de 980px y encogen todo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Descripción para SEO (Google) y para cuando se comparte el link -->
+    <meta name="description" content="Mashka Box Training Club - Gimnasio de entrenamiento funcional en Latacunga, Ecuador">
+
     <!-- Nombre que aparece en la pestaña del navegador -->
-    <title>Mashka Box</title>
+    <title>Mashka Box - Training Club</title>
 
     <!-- Conecta este archivo HTML con el archivo de estilos CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <img class="logo-negocio" src="Imagenes/logo.jpeg" alt="Logo Mashka Box">
-    <!-- id permite que el enlace del menú pueda regresar a esta parte de la página -->
-    <h1 id="inicio">MASHKA</h1>
-    <h2>TRAINING CLUB</h2>
-    <p>Transforma tu cuerpo, eleva tu mente.</p>
+    <!-- header agrupa el logo, titulo principal y menú: es la parte superior del sitio -->
+    <header class="hero">
+<!-- Icono de pesa como simbolo de marca, queda nitido en cualquier tamaño -->
+<div class="logo-negocio" aria-label="Mashka Box">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Barra central -->
+        <line x1="14" y1="32" x2="50" y2="32"/>
+        <!-- Pesa izquierda -->
+        <rect x="6" y="22" width="6" height="20" rx="1.5"/>
+        <rect x="2" y="26" width="3" height="12" rx="1"/>
+        <!-- Pesa derecha -->
+        <rect x="52" y="22" width="6" height="20" rx="1.5"/>
+        <rect x="59" y="26" width="3" height="12" rx="1"/>
+    </svg>
+</div>
+        <!-- id permite que el enlace del menú pueda regresar a esta parte de la página -->
+        <h1 id="inicio">MASHKA</h1>
+        <h2 class="subtitulo-hero">TRAINING CLUB</h2>
+        <p class="frase-hero">Transforma tu cuerpo, eleva tu mente.</p>
 
-    <h2>Menu de navegacion</h2>
-
-    <!-- nav agrupa los enlaces principales de navegación -->
-    <nav>
+        <!-- nav agrupa los enlaces principales de navegación -->
+        <nav>
         <!-- href con # lleva a una sección dentro de la misma página -->
         <a href="#inicio">Inicio</a>
         <a href="#nosotros">Sobre nosotros</a>
@@ -33,349 +53,809 @@
         <a href="#ubicacion">Ubicacion</a>
         <a href="#contacto">Contacto</a>
     </nav>
+    </header>
 
     <!-- Línea horizontal para separar visualmente las secciones -->
-    <hr>
+  <!-- Seccion combinada: bienvenida + sobre nosotros con stats e imagen -->
+    <section class="nosotros" id="nosotros">
+        <div class="nosotros-grid">
+            <!-- Lado izquierdo: texto e info -->
+            <div class="nosotros-texto">
+                <span class="seccion-tag">Quiénes somos</span>
+                <h2 class="nosotros-titulo">Más que un gimnasio,<br><span class="amarillo">una tribu.</span></h2>
+                <p class="nosotros-lead">
+                    Entrenamiento funcional, comunidad real y resultados que se sienten.
+                    En Mashka Box transformamos cuerpos y mentes.
+                </p>
+                <p class="nosotros-bajada">
+                    Un espacio diseñado para mujeres jóvenes y personas comprometidas con su
+                    cambio físico. Aquí no entrenas solo: te empuja una comunidad.
+                </p>
 
-    <!-- section se usa para dividir el contenido por temas -->
-    <section>
-        <h2>Bienvenida</h2>
-        <p>
-            Bienvenido a Mashka Box, un espacio creado para ayudarte a alcanzar tus
-            objetivos de salud, bienestar y entrenamiento fisico.
-        </p>
-        <p>
-            Aqui encontraras energia, disciplina, constancia y una comunidad lista
-            para acompañarte en cada entrenamiento.
-        </p>
+                <!-- Stats: 3 valores genericos que definen la marca -->
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-icono">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Comunidad</h3>
+                        <p>Entrenas rodeado de gente que va por lo mismo que tú.</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icono">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <h3>Disciplina</h3>
+                        <p>Rutinas con objetivo claro. Cada clase suma a tu meta.</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icono">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3>Resultados</h3>
+                        <p>Más fuerza, mejor condición física y energía real.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lado derecho: imagen del local -->
+            <div class="nosotros-imagen">
+                <img src="Imagenes/logo1.jpeg" alt="Entrenamiento en Mashka Box">
+                <!-- Badge flotante decorativo sobre la imagen -->
+                <div class="imagen-badge">
+                    <strong>Latacunga</strong>
+                    <span>Av. Unidad Nacional</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <hr>
+    <!-- Galeria estilo masonry: cuadricula asimetrica que ocupa todo el ancho -->
+    <section class="galeria-section" id="galeria">
+        <div class="galeria-header">
+            <span class="seccion-tag">Nuestro espacio</span>
+            <h2 class="galeria-titulo">Conoce <span class="amarillo">Mashka Box</span></h2>
+            <p class="galeria-sub">Equipamiento profesional, ambiente motivador y una comunidad que entrena fuerte.</p>
+        </div>
 
-    <section>
-        <!-- id conecta esta sección con el enlace "Sobre nosotros" del menú -->
-        <h2 id="nosotros">Sobre nosotros</h2>
-        <p>
-            En Mashka Box nos dedicamos a ayudar a mujeres jovenes y a toda persona
-            interesada en mejorar su condicion fisica a traves de programas de
-            entrenamiento, clases grupales y asesoramiento.
-        </p>
-
-        <p>
-            Contamos con un ambiente moderno, motivador y una comunidad enfocada en
-            crecer, mejorar y mantener un estilo de vida saludable.
-        </p>
+        <!-- 
+            Grid de 6 imagenes. La primera ocupa 2 filas para crear ritmo visual.
+            Cada item tiene un overlay que aparece al pasar el mouse encima.
+        -->
+        <div class="galeria-grid">
+            <figure class="galeria-item galeria-grande">
+                <img src="Imagenes/entrenamiento1.jpeg" alt="Equipamiento de Mashka Box">
+                <figcaption>
+                    <span class="galeria-categoria">Equipamiento</span>
+                    <span class="galeria-titulo-card">Material profesional</span>
+                </figcaption>
+            </figure>
+            <figure class="galeria-item">
+                <img src="Imagenes/entrenamiento2.jpeg" alt="Espacio de entrenamiento">
+                <figcaption>
+                    <span class="galeria-categoria">Espacio</span>
+                    <span class="galeria-titulo-card">Ambiente motivador</span>
+                </figcaption>
+            </figure>
+            <figure class="galeria-item">
+                <img src="Imagenes/entrenamiento3.jpeg" alt="Comunidad Mashka Box">
+                <figcaption>
+                    <span class="galeria-categoria">Comunidad</span>
+                    <span class="galeria-titulo-card">Entrena con tu tribu</span>
+                </figcaption>
+            </figure>
+            <figure class="galeria-item">
+                <img src="Imagenes/entrenamiento4.jpg" alt="Instalaciones del gimnasio">
+                <figcaption>
+                    <span class="galeria-categoria">Instalaciones</span>
+                    <span class="galeria-titulo-card">Diseñado para entrenar</span>
+                </figcaption>
+            </figure>
+            <figure class="galeria-item">
+                <img src="Imagenes/entrenamiento5.jpg" alt="Pesas olimpicas">
+                <figcaption>
+                    <span class="galeria-categoria">Pesas</span>
+                    <span class="galeria-titulo-card">Para todos los niveles</span>
+                </figcaption>
+            </figure>
+            <figure class="galeria-item">
+                <img src="Imagenes/entrenamiento6.jpg" alt="Entrenamiento funcional">
+                <figcaption>
+                    <span class="galeria-categoria">Funcional</span>
+                    <span class="galeria-titulo-card">Movimiento real</span>
+                </figcaption>
+            </figure>
+        </div>
     </section>
-
     <hr>
 
-    <section>
-        <h2 id="galeria">Galeria de imagenes</h2>
-        <p>
-            Conoce un poco del ambiente, los entrenamientos y la comunidad de Mashka Box.
-        </p>
+    <!-- Beneficios: 4 tarjetas con iconos SVG, hover con glow -->
+    <section class="beneficios-section" id="beneficios">
+        <div class="beneficios-header">
+            <span class="seccion-tag">Por qué elegirnos</span>
+            <h2 class="beneficios-titulo">Razones para <span class="amarillo">empezar hoy</span></h2>
+            <p class="beneficios-sub">Más que entrenar: una experiencia diseñada para transformarte.</p>
+        </div>
 
-        <!-- class sirve para aplicar estilos desde CSS a este grupo de imágenes -->
-        <div class="galeria">
+        <div class="beneficios-grid">
+            <article class="beneficio-card">
+                <div class="beneficio-icono">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="14" y1="32" x2="50" y2="32"/>
+                        <rect x="6" y="22" width="6" height="20" rx="1.5"/>
+                        <rect x="2" y="26" width="3" height="12" rx="1"/>
+                        <rect x="52" y="22" width="6" height="20" rx="1.5"/>
+                        <rect x="59" y="26" width="3" height="12" rx="1"/>
+                    </svg>
+                </div>
+                <h3>Funcional Real</h3>
+                <p>Rutinas que mejoran tu día a día: fuerza, resistencia y movilidad.</p>
+            </article>
 
-            <!-- src indica la ubicación de la imagen y alt describe la imagen si no carga -->
-            <img src="Imagenes/logo1.jpeg" alt="Logo de Mashka Box">
+            <article class="beneficio-card">
+                <div class="beneficio-icono">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3>Energía Grupal</h3>
+                <p>Entrena con gente en tu nivel. La motivación se contagia.</p>
+            </article>
 
-            <img src="Imagenes/entrenamiento1.jpeg" alt="Entrenamiento funcional en Mashka Box">
-            <img src="Imagenes/entrenamiento2.jpeg" alt="Clase grupal de crossfit">
-            <img src="Imagenes/entrenamiento3.jpeg" alt="Comunidad Mashka Box">
+            <article class="beneficio-card">
+                <div class="beneficio-icono">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <h3>Coach Personal</h3>
+                <p>Te corregimos, te empujamos y te guiamos paso a paso.</p>
+            </article>
+
+            <article class="beneficio-card">
+                <div class="beneficio-icono">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                    </svg>
+                </div>
+                <h3>Tribu Mashka</h3>
+                <p>Más que socios: una comunidad que te empuja y celebra contigo.</p>
+            </article>
+        </div>
+    </section>
+    <hr>
+
+   <!-- Planes: 5 tarjetas con precio, beneficios y CTA -->
+    <section class="planes-section" id="planes">
+        <div class="planes-header">
+            <span class="seccion-tag">Membresías</span>
+            <h2 class="planes-titulo">Encuentra <span class="amarillo">tu plan</span></h2>
+            <p class="planes-sub">Elige el ritmo que mejor se adapte a tus objetivos.</p>
+        </div>
+
+        <div class="planes-grid">
+            <article class="plan-card">
+                <div class="plan-card-header">
+                    <h3>Grupal</h3>
+                    <span class="plan-tag">Para 3+</span>
+                </div>
+                <div class="plan-precio">
+                    <span class="moneda">$</span>
+                    <span class="numero">30</span>
+                    <span class="periodo">/ persona</span>
+                </div>
+                <p class="plan-desc">Entrena con tu grupo de amigos y motívense juntos.</p>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Desde 3 personas</li>
+                    <li><span class="check">✓</span> Acceso a clases grupales</li>
+                    <li><span class="check">✓</span> Asesoría compartida</li>
+                </ul>
+                <a href="#contacto" class="plan-btn">Empezar</a>
+            </article>
+
+            <article class="plan-card">
+                <div class="plan-card-header">
+                    <h3>Estudiantes</h3>
+                    <span class="plan-tag">Con carnet</span>
+                </div>
+                <div class="plan-precio">
+                    <span class="moneda">$</span>
+                    <span class="numero">30</span>
+                    <span class="periodo">/ mes</span>
+                </div>
+                <p class="plan-desc">Pensado para jóvenes que buscan un estilo de vida activo.</p>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Carnet estudiantil vigente</li>
+                    <li><span class="check">✓</span> Acceso ilimitado al box</li>
+                    <li><span class="check">✓</span> Horarios flexibles</li>
+                </ul>
+                <a href="#contacto" class="plan-btn">Empezar</a>
+            </article>
+
+            <article class="plan-card plan-destacado">
+                <div class="plan-badge">RECOMENDADO</div>
+                <div class="plan-card-header">
+                    <h3>Mensual</h3>
+                    <span class="plan-tag">Más popular</span>
+                </div>
+                <div class="plan-precio">
+                    <span class="moneda">$</span>
+                    <span class="numero">35</span>
+                    <span class="periodo">/ mes</span>
+                </div>
+                <p class="plan-desc">El balance perfecto para empezar y ver resultados reales.</p>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Acceso completo al box</li>
+                    <li><span class="check">✓</span> Todas las clases grupales</li>
+                    <li><span class="check">✓</span> Plan personalizado</li>
+                    <li><span class="check">✓</span> Seguimiento mensual</li>
+                </ul>
+                <a href="#contacto" class="plan-btn plan-btn-destacado">Empezar ahora</a>
+            </article>
+
+            <article class="plan-card">
+                <div class="plan-card-header">
+                    <h3>Trimestral</h3>
+                    <span class="plan-tag">90 días</span>
+                </div>
+                <div class="plan-precio">
+                    <span class="moneda">$</span>
+                    <span class="numero">95</span>
+                    <span class="periodo">/ trimestre</span>
+                </div>
+                <p class="plan-desc">Comprométete con tu cambio y ahorra en el camino.</p>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Acceso completo</li>
+                    <li><span class="check">✓</span> Disciplina garantizada</li>
+                    <li><span class="check">✓</span> Mejor precio mensual</li>
+                </ul>
+                <a href="#contacto" class="plan-btn">Empezar</a>
+            </article>
+
+            <article class="plan-card">
+                <div class="plan-card-header">
+                    <h3>Semestral</h3>
+                    <span class="plan-tag">Mejor valor</span>
+                </div>
+                <div class="plan-precio">
+                    <span class="moneda">$</span>
+                    <span class="numero">180</span>
+                    <span class="periodo">/ semestre</span>
+                </div>
+                <p class="plan-desc">Convierte el entrenamiento en un hábito de por vida.</p>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Acceso completo</li>
+                    <li><span class="check">✓</span> Hábito consolidado</li>
+                    <li><span class="check">✓</span> Máximo ahorro</li>
+                </ul>
+                <a href="#contacto" class="plan-btn">Empezar</a>
+            </article>
         </div>
     </section>
 
     <hr>
 
-    <section>
-        <h2 id="beneficios">Beneficios</h2>
-        <p>
-            Entrena en un ambiente motivador, acompañado por una comunidad que te impulsa
-            a dar lo mejor de ti en cada clase.
-        </p>
-
-        <!-- Contenedor general para organizar las tarjetas de beneficios -->
-        <div class="beneficios-contenedor">
-
-            <!-- Cada div con clase beneficio representa una tarjeta individual -->
-            <div class="beneficio">
-                <h3>Entrenamiento funcional</h3>
-                <p>Rutinas completas para mejorar fuerza, resistencia y movilidad.</p>
-            </div>
-
-            <div class="beneficio">
-                <h3>Clases grupales</h3>
-                <p>Entrena con más personas y mantente motivado todos los días.</p>
-            </div>
-
-            <div class="beneficio">
-                <h3>Acompañamiento</h3>
-                <p>Te guiamos paso a paso según tu nivel y tus objetivos.</p>
-            </div>
-
-            <div class="beneficio">
-                <h3>Comunidad Mashka</h3>
-                <p>Más que un box, somos una comunidad con energía y disciplina.</p>
-            </div>
-
+    <!-- Tabla de comparacion rediseñada -->
+    <section class="comparacion-section">
+        <div class="comparacion-header">
+            <span class="seccion-tag">Comparativa</span>
+            <h2 class="comparacion-titulo">¿Cuál es <span class="amarillo">para ti</span>?</h2>
+            <p class="comparacion-sub">Encuentra el plan que mejor se adapte a tu estilo de vida.</p>
         </div>
-    </section>
 
-    <hr>
-
-    <section>
-        <h2 id="planes">Planes</h2>
-        <p>Elige el plan que mejor se adapte a tu ritmo de entrenamiento.</p>
-
-        <!-- Agrupa todos los planes para acomodarlos mejor con CSS -->
-        <div class="planes-contenedor">
-
-            <div class="plan">
-                <h3>Plan Grupal</h3>
-
-                <!-- La clase precio permite darle un estilo especial al valor del plan -->
-                <p class="precio">$30</p>
-                <p>Por persona desde 3 personas.</p>
-            </div>
-
-            <div class="plan">
-                <h3>Plan Estudiantes</h3>
-                <p class="precio">$30</p>
-                <p>Presentando carnet estudiantil vigente.</p>
-            </div>
-
-            <!-- destacado se usa para resaltar este plan frente a los demás -->
-            <div class="plan destacado">
-                <h3>Plan Mensual</h3>
-                <p class="precio">$35</p>
-                <p>Ideal para empezar y probar tu primer mes.</p>
-            </div>
-
-            <div class="plan">
-                <h3>Plan Trimestral</h3>
-                <p class="precio">$95</p>
-                <p>Comprométete 90 días con tu cambio.</p>
-            </div>
-
-            <div class="plan">
-                <h3>Plan Semestral</h3>
-                <p class="precio">$180</p>
-                <p>Convierte el entrenamiento en un hábito.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <hr>
-
-    <section>
-        <h2>Comparacion de planes</h2>
-        <p>Elige el plan que mejor se adapte a tu ritmo y objetivo.</p>
-
-        <!-- Contenedor usado para dar formato a la tabla desde CSS -->
-        <div class="tabla-contenedor">
-
-            <!-- table crea una tabla de información -->
-            <table>
-
-                <!-- tr representa una fila de la tabla -->
-                <tr>
-                    <!-- th se usa para los encabezados de las columnas -->
-                    <th>Plan</th>
-                    <th>Ideal para</th>
-                    <th>Beneficio</th>
-                </tr>
-
-                <tr>
-                    <!-- td representa una celda normal dentro de la tabla -->
-                    <td>Grupal</td>
-                    <td>Entrenar con amigos</td>
-                    <td>Motivacion en equipo</td>
-                </tr>
-
-                <tr>
-                    <td>Estudiantes</td>
-                    <td>Jovenes con carnet</td>
-                    <td>Precio accesible</td>
-                </tr>
-
-                <tr>
-                    <td>Mensual</td>
-                    <td>Personas que empiezan</td>
-                    <td>Probar 1 mes</td>
-                </tr>
-
-                <tr>
-                    <td>Trimestral</td>
-                    <td>Buscar constancia</td>
-                    <td>Disciplina 90 dias</td>
-                </tr>
-
-                <tr>
-                    <td>Semestral</td>
-                    <td>Cambio a largo plazo</td>
-                    <td>Crear habito</td>
-                </tr>
+        <div class="tabla-wrapper">
+            <table class="tabla-comparacion">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Ideal para</th>
+                        <th>Beneficio principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Grupal</strong></td>
+                        <td>Entrenar con amigos</td>
+                        <td><span class="tabla-pill">Motivación en equipo</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estudiantes</strong></td>
+                        <td>Jóvenes con carnet</td>
+                        <td><span class="tabla-pill">Precio accesible</span></td>
+                    </tr>
+                    <tr class="tabla-destacada">
+                        <td><strong>Mensual</strong> <span class="tabla-star">★</span></td>
+                        <td>Personas que empiezan</td>
+                        <td><span class="tabla-pill tabla-pill-amarillo">Probar 1 mes</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trimestral</strong></td>
+                        <td>Buscar constancia</td>
+                        <td><span class="tabla-pill">Disciplina 90 días</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Semestral</strong></td>
+                        <td>Cambio a largo plazo</td>
+                        <td><span class="tabla-pill">Crear hábito</span></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </section>
 
     <hr>
 
-    <section>
-        <h2 id="horarios">Horarios de atencion</h2>
-        <p>Tenemos horarios flexibles para que puedas entrenar antes o después de tus actividades.</p>
+    <!-- Horarios: dos columnas (mañana / tarde-noche) lado a lado -->
+    <section class="horarios-section" id="horarios">
+        <div class="horarios-header">
+            <span class="seccion-tag">Lunes a Viernes</span>
+            <h2 class="horarios-titulo">Cuando <span class="amarillo">tú quieras</span></h2>
+            <p class="horarios-sub">Horarios flexibles para que entrenes antes o después del trabajo.</p>
+        </div>
 
-        <!-- Contenedor para separar los horarios en bloques -->
-        <div class="horarios-contenedor">
+        <div class="horarios-grid">
+            <!-- Bloque mañana -->
+            <article class="horario-bloque horario-manana">
+                <div class="horario-bloque-header">
+                    <div class="horario-icono">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Mañana</h3>
+                        <span class="horario-rango">5:00 AM - 8:00 AM</span>
+                    </div>
+                </div>
+                <ul class="horario-lista">
+                    <li><span class="hora">5:00</span> <span class="hora-meridiano">AM</span></li>
+                    <li><span class="hora">6:00</span> <span class="hora-meridiano">AM</span></li>
+                    <li><span class="hora">7:00</span> <span class="hora-meridiano">AM</span></li>
+                    <li><span class="hora">8:00</span> <span class="hora-meridiano">AM</span></li>
+                </ul>
+            </article>
 
-            <div class="horario">
-                <h3>Horarios Mañana</h3>
-                <p>5:00 AM</p>
-                <p>6:00 AM</p>
-                <p>7:00 AM</p>
-                <p>8:00 AM</p>
+            <!-- Bloque tarde/noche -->
+            <article class="horario-bloque horario-tarde">
+                <div class="horario-bloque-header">
+                    <div class="horario-icono">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Tarde / Noche</h3>
+                        <span class="horario-rango">4:00 PM - 8:00 PM</span>
+                    </div>
+                </div>
+                <ul class="horario-lista">
+                    <li><span class="hora">4:00</span> <span class="hora-meridiano">PM</span></li>
+                    <li><span class="hora">5:00</span> <span class="hora-meridiano">PM</span></li>
+                    <li><span class="hora">6:00</span> <span class="hora-meridiano">PM</span></li>
+                    <li><span class="hora">7:00</span> <span class="hora-meridiano">PM</span></li>
+                    <li><span class="hora">8:00</span> <span class="hora-meridiano">PM</span></li>
+                </ul>
+            </article>
+        </div>
+    </section>
+    <hr>
+
+<!-- Multimedia: video con look mas integrado -->
+    <section class="multimedia-section" id="multimedia">
+        <div class="multimedia-header">
+            <span class="seccion-tag">En acción</span>
+            <h2 class="multimedia-titulo">Mira <span class="amarillo">cómo entrenamos</span></h2>
+            <p class="multimedia-sub">Una clase real en Mashka Box. Energía, técnica y comunidad.</p>
+        </div>
+        <div class="multimedia-video">
+            <video controls>
+                <source src="Video/entrenamiento.mp4" type="video/mp4">
+                Tu navegador no soporta video.
+            </video>
+        </div>
+    </section>
+<!-- Seccion WhatsApp Directo: contacto rapido con mockup de telefono -->
+    <section class="whatsapp-section">
+        <div class="whatsapp-container">
+            <!-- Lado izquierdo: info y CTA -->
+            <div class="whatsapp-info">
+                <span class="seccion-tag whatsapp-tag">Contacto Directo</span>
+                <h2 class="whatsapp-titulo">Escríbenos por <span class="verde-wa">WhatsApp</span></h2>
+                <p class="whatsapp-sub">
+                    Resolvemos tus dudas al instante. Información sobre planes,
+                    horarios y cómo empezar a entrenar con nosotros.
+                </p>
+
+                <div class="whatsapp-features">
+                    <div class="wa-feature">
+                        <span class="wa-check">✓</span> Respuesta inmediata
+                    </div>
+                    <div class="wa-feature">
+                        <span class="wa-check">✓</span> Información personalizada
+                    </div>
+                    <div class="wa-feature">
+                        <span class="wa-check">✓</span> Asesoría sobre planes
+                    </div>
+                    <div class="wa-feature">
+                        <span class="wa-check">✓</span> Reserva tu primera clase
+                    </div>
+                </div>
+
+                <a href="https://wa.me/593983421877?text=Hola%20Mashka%20Box%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20planes" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-grande">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Iniciar Conversación
+                </a>
+                <p class="wa-numero">098 342 1877</p>
             </div>
 
-            <div class="horario">
-                <h3>Horarios Tarde / Noche</h3>
-                <p>4:00 PM</p>
-                <p>5:00 PM</p>
-                <p>6:00 PM</p>
-                <p>7:00 PM</p>
-                <p>8:00 PM</p>
+            <!-- Lado derecho: mockup de telefono con conversacion -->
+            <div class="whatsapp-visual">
+                <div class="phone-mockup">
+                    <div class="phone-header">
+                        <div class="phone-avatar">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="14" y1="32" x2="50" y2="32"/>
+                                <rect x="6" y="22" width="6" height="20" rx="1.5"/>
+                                <rect x="2" y="26" width="3" height="12" rx="1"/>
+                                <rect x="52" y="22" width="6" height="20" rx="1.5"/>
+                                <rect x="59" y="26" width="3" height="12" rx="1"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="phone-name">Mashka Box</div>
+                            <div class="phone-status">En línea</div>
+                        </div>
+                    </div>
+                    <div class="phone-messages">
+                        <div class="msg msg-recibido">
+                            ¡Hola! Bienvenido a Mashka Box 💪 ¿En qué podemos ayudarte?
+                        </div>
+                        <div class="msg msg-enviado">
+                            Hola, me interesa saber sobre el plan mensual
+                        </div>
+                        <div class="msg msg-recibido">
+                            ¡Genial! El plan mensual está en $35 e incluye acceso completo y todas las clases grupales 🔥
+                        </div>
+                        <div class="msg msg-recibido msg-typing">
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ubicacion: layout 2 columnas estilo DAFEC con info + mapa -->
+    <section class="ubicacion-section" id="ubicacion">
+        <div class="ubicacion-container">
+            <div class="ubicacion-info">
+                <span class="seccion-tag">Visítanos</span>
+                <h2 class="ubicacion-titulo">Nuestra <span class="amarillo">ubicación</span></h2>
+                <p class="ubicacion-sub">Te esperamos en el box para conocerte y ayudarte a empezar.</p>
+
+                <div class="ubicacion-detalles">
+                    <!-- Direccion -->
+                    <div class="ubicacion-item">
+                        <span class="ubicacion-icono">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </span>
+                        <div>
+                            <strong>Dirección</strong>
+                            <a href="https://maps.app.goo.gl/JB6sSnckx5pYGWyc8" target="_blank" rel="noopener noreferrer" class="ubicacion-link">Av. Unidad Nacional y Manuelita Saenz, Latacunga</a>
+                        </div>
+                    </div>
+
+                    <!-- Telefono -->
+                    <div class="ubicacion-item">
+                        <span class="ubicacion-icono">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </span>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <a href="tel:+593983421877" class="ubicacion-link">098 342 1877</a>
+                        </div>
+                    </div>
+
+                    <!-- Horario -->
+                    <div class="ubicacion-item">
+                        <span class="ubicacion-icono">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </span>
+                        <div>
+                            <strong>Horario</strong>
+                            <p>Lunes a Viernes: 5:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="ubicacion-item">
+                        <span class="ubicacion-icono ubicacion-icono-wa">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </span>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <a href="https://wa.me/593983421877?text=Hola%20Mashka%20Box%2C%20me%20interesa%20saber%20m%C3%A1s" target="_blank" rel="noopener noreferrer" class="ubicacion-link">Escríbenos al instante</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <!-- Mapa -->
+            <div class="ubicacion-mapa">
+                <iframe 
+                    src="https://www.google.com/maps?q=-0.9452842,-78.6113165&z=17&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Ubicacion Mashka Box">
+                </iframe>
+            </div>
         </div>
     </section>
 
-    <hr>
+    <!-- Formulario de contacto: estilo premium con campos obligatorios -->
+    <section class="contacto-section" id="contacto">
+        <div class="contacto-container">
+            <!-- Lado izquierdo: copy motivacional -->
+            <div class="contacto-info">
+                <span class="seccion-tag">Empieza hoy</span>
+                <h2 class="contacto-titulo">Da el <span class="amarillo">primer paso</span></h2>
+                <p class="contacto-sub">
+                    Déjanos tus datos y nos comunicaremos contigo para guiarte
+                    al plan que mejor se adapte a tus objetivos.
+                </p>
 
-    <section>
-        <h2 id="multimedia">Seccion multimedia</h2>
+                <div class="contacto-puntos">
+                    <div class="contacto-punto">
+                        <div class="contacto-punto-icono">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Sin compromiso</strong>
+                            <p>Te informamos sin presión. Tú decides cuándo empezar.</p>
+                        </div>
+                    </div>
+                    <div class="contacto-punto">
+                        <div class="contacto-punto-icono">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Respuesta en 24 horas</strong>
+                            <p>Recibirás una respuesta personalizada de nuestro equipo.</p>
+                        </div>
+                    </div>
+                    <div class="contacto-punto">
+                        <div class="contacto-punto-icono">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Primera clase de prueba</strong>
+                            <p>Ven a conocer el box antes de elegir tu plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <p>Video de entrenamiento:</p>
+            <!-- Lado derecho: el formulario -->
+            <div class="contacto-form-wrapper">
+                <form class="contacto-form" method="POST" action="registrar.php" novalidate>
+                    <h3 class="contacto-form-titulo">Cuéntanos sobre ti</h3>
+                    <p class="contacto-form-sub">Los campos con <span class="obligatorio">*</span> son obligatorios.</p>
 
-        <!-- controls muestra los botones para reproducir, pausar y controlar el video -->
-        <video width="320" height="240" controls>
+                    <!-- Nombre - obligatorio -->
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre completo <span class="obligatorio">*</span></label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            name="nombre" 
+                            placeholder="Ej. María González"
+                            required
+                            minlength="3"
+                            maxlength="80">
+                    </div>
 
-            <!-- source indica la ruta del video y type el formato del archivo -->
-            <source src="Video/entrenamiento.mp4" type="video/mp4">
+                    <!-- Correo - opcional -->
+                    <div class="form-grupo">
+                        <label for="correo">Correo electrónico</label>
+                        <input 
+                            type="email" 
+                            id="correo" 
+                            name="correo" 
+                            placeholder="tu@correo.com"
+                            maxlength="100">
+                    </div>
 
-            Tu navegador no soporta video.
-        </video>
+                    <!-- Telefono - obligatorio -->
+                    <div class="form-grupo">
+                        <label for="telefono">Teléfono <span class="obligatorio">*</span></label>
+                        <input 
+                            type="tel" 
+                            id="telefono" 
+                            name="telefono" 
+                            placeholder="Ej. 0983421877"
+                            required
+                            pattern="[0-9]{10}"
+                            title="10 dígitos, sin espacios ni guiones"
+                            maxlength="10">
+                    </div>
+
+                    <!-- Fila de 2 columnas: objetivo + horario -->
+                    <div class="form-fila">
+                        <!-- Objetivo - obligatorio -->
+                        <div class="form-grupo">
+                            <label for="objetivo">Objetivo <span class="obligatorio">*</span></label>
+                            <select id="objetivo" name="objetivo" required>
+                                <option value="" disabled selected>Selecciona...</option>
+                                <option value="Bajar de peso">Bajar de peso</option>
+                                <option value="Ganar fuerza">Ganar fuerza</option>
+                                <option value="Mejorar condicion fisica">Mejorar mi condición</option>
+                                <option value="Empezar desde cero">Empezar desde cero</option>
+                                <option value="Entrenar por salud">Entrenar por salud</option>
+                            </select>
+                        </div>
+
+                        <!-- Horario - opcional -->
+                        <div class="form-grupo">
+                            <label for="horario">Horario preferido</label>
+                            <select id="horario" name="horario">
+                                <option value="" disabled selected>Cualquier momento</option>
+                                <option value="Manana">Mañana (5-8 AM)</option>
+                                <option value="Tarde">Tarde (4-6 PM)</option>
+                                <option value="Noche">Noche (7-8 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Plan - obligatorio -->
+                    <div class="form-grupo">
+                        <label for="plan">Plan de interés <span class="obligatorio">*</span></label>
+                        <select id="plan" name="plan" required>
+                            <option value="" disabled selected>Selecciona un plan...</option>
+                            <option value="Plan grupal">Plan Grupal ($30 / persona)</option>
+                            <option value="Plan estudiantes">Plan Estudiantes ($30 / mes)</option>
+                            <option value="Plan mensual">Plan Mensual ($35 / mes) ★</option>
+                            <option value="Plan trimestral">Plan Trimestral ($95)</option>
+                            <option value="Plan semestral">Plan Semestral ($180)</option>
+                        </select>
+                    </div>
+
+                    <!-- Boton de envio -->
+                    <button type="submit" class="form-btn">
+                        <span>Quiero empezar</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
+
+                    <p class="form-aviso">
+                        Al enviar aceptas que te contactemos por teléfono o WhatsApp.
+                    </p>
+                </form>
+            </div>
+        </div>
     </section>
-
     <hr>
 
-    <section>
-        <h2 id="ubicacion">Ubicacion</h2>
-        <p>Encuentranos en Mashka Box Training Club, Latacunga.</p>
+   <!-- Footer con redes sociales y links -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Columna marca + descripcion + redes -->
+                <div class="footer-marca">
+                    <div class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="14" y1="32" x2="50" y2="32"/>
+                            <rect x="6" y="22" width="6" height="20" rx="1.5"/>
+                            <rect x="2" y="26" width="3" height="12" rx="1"/>
+                            <rect x="52" y="22" width="6" height="20" rx="1.5"/>
+                            <rect x="59" y="26" width="3" height="12" rx="1"/>
+                        </svg>
+                        <span>MASHKA <strong>BOX</strong></span>
+                    </div>
+                    <p class="footer-desc">
+                        Más que un gimnasio, una tribu. Entrenamiento funcional, comunidad real y resultados que se sienten.
+                    </p>
+                    <!-- Botones de redes sociales -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-btn social-fb" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/mashkabox" target="_blank" rel="noopener noreferrer" class="social-btn social-ig" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/593983421877" target="_blank" rel="noopener noreferrer" class="social-btn social-wa" aria-label="WhatsApp">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-        <!-- iframe permite insertar contenido externo, en este caso un mapa de Google Maps -->
-        <iframe 
-            src="https://www.google.com/maps?q=-0.9452842,-78.6113165&z=17&output=embed"
-            width="400"
-            height="250"
-            loading="lazy">
-        </iframe>
+                <!-- Columna links de navegacion -->
+                <div class="footer-col">
+                    <h4>Explora</h4>
+                    <ul>
+                        <li><a href="#nosotros">Sobre nosotros</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#planes">Planes</a></li>
+                        <li><a href="#horarios">Horarios</a></li>
+                    </ul>
+                </div>
 
-        <p>
-            <!-- target="_blank" abre el enlace en una nueva pestaña -->
-            <a href="https://maps.app.goo.gl/JB6sSnckx5pYGWyc8" target="_blank">
-                Ver ubicacion en Google Maps
-            </a>
-        </p>
-    </section>
+                <!-- Columna contacto rapido -->
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="tel:+593983421877">098 342 1877</a></li>
+                        <li><a href="https://wa.me/593983421877" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="https://www.instagram.com/mashkabox" target="_blank" rel="noopener noreferrer">@mashkabox</a></li>
+                        <li><a href="https://maps.app.goo.gl/JB6sSnckx5pYGWyc8" target="_blank" rel="noopener noreferrer">Latacunga, Ecuador</a></li>
+                    </ul>
+                </div>
+            </div>
 
-    <hr>
-
-    <section>
-        <h2 id="contacto">Empieza tu cambio hoy</h2>
-
-        <p>
-            Dejanos tus datos y nos comunicaremos contigo para ayudarte a elegir
-            el plan que mejor se adapte a tus objetivos.
-        </p>
-
-        <!-- form agrupa los campos que el usuario debe llenar -->
-        <form>
-
-            <!-- label sirve para indicar qué información debe ingresar el usuario -->
-            <label>Nombre completo:</label><br>
-
-            <!-- input type text permite escribir texto normal -->
-            <!-- name identifica este campo y placeholder muestra una guía dentro del cuadro -->
-            <input type="text" name="nombre" placeholder="Escribe tu nombre completo"><br><br>
-
-            <label>Correo electronico:</label><br>
-
-            <!-- type email está pensado para ingresar correos electrónicos -->
-            <input type="email" name="correo" placeholder="ejemplo@gmail.com"><br><br>
-
-            <label>Telefono:</label><br>
-            <input type="text" name="telefono" placeholder="Tu numero de contacto"><br><br>
-
-            <label>Objetivo principal:</label><br>
-
-            <!-- select crea una lista desplegable de opciones -->
-            <select name="objetivo">
-
-                <!-- option representa cada opción disponible dentro del select -->
-                <option>Selecciona una opcion</option>
-                <option>Bajar de peso</option>
-                <option>Ganar fuerza</option>
-                <option>Mejorar mi condicion fisica</option>
-                <option>Empezar desde cero</option>
-                <option>Entrenar por salud</option>
-            </select><br><br>
-
-            <label>Horario de interes:</label><br>
-            <select name="horario">
-                <option>Selecciona un horario</option>
-                <option>Manana</option>
-                <option>Tarde</option>
-                <option>Noche</option>
-            </select><br><br>
-
-            <label>Plan que te interesa:</label><br>
-            <select name="plan">
-                <option>Selecciona un plan</option>
-                <option>Plan grupal</option>
-                <option>Plan estudiantes</option>
-                <option>Plan mensual</option>
-                <option>Plan trimestral</option>
-                <option>Plan semestral</option>
-            </select><br><br>
-
-            <!-- type submit crea el botón para enviar el formulario -->
-            <input type="submit" value="Quiero empezar">
-        </form>
-    </section>
-
-    <hr>
-
-    <section>
-        <h2>Contacto y redes sociales</h2>
-
-        <p>Direccion: Av. Unidad Nacional y Manuelita Saenz</p>
-        <p>Telefono: 0983421877</p>
-        <p>Instagram: @mashkabox</p>
-        <p>Facebook: Mashka Box</p>
-    </section>
-
-    <hr>
-
-    <!-- footer contiene la parte final de la página -->
-    <footer>
-        <p>Mas que un box, una comunidad.</p>
-
-        <!-- &copy; muestra el símbolo de derechos de autor -->
-        <p>&copy; 2026 Mashka Box Training Club</p>
+            <div class="footer-bottom">
+                <p>Más que un box, una comunidad.</p>
+                <p>&copy; 2026 Mashka Box Training Club</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Boton flotante de WhatsApp - siempre visible -->
+    <a href="https://wa.me/593983421877?text=Hola%20Mashka%20Box%2C%20me%20interesa%20saber%20m%C3%A1s" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
 </body>
 
 </html>
