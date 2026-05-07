@@ -1,10 +1,16 @@
-/* =========================================================
-   CONFIGURACIÓN GENERAL DEL SITIO
-   ========================================================= */
+/* 
+    PALETA DE COLORES DEL LOGO
+    Negro: #050505
+    Negro suave: #111111
+    Amarillo: #FFD21F
+    Azul: #4A9ADD
+    Blanco: #FFFFFF
+*/
 
 /* 
-   Aplica el modelo de caja a todos los elementos.
-   Esto ayuda a que el padding y los bordes no aumenten el tamaño total.
+    Aplica estilos generales a todos los elementos.
+    box-sizing evita que el padding y el borde aumenten el tamaño real.
+    scroll-behavior hace que el menu navegue suavemente.
 */
 *{
     box-sizing: border-box;
@@ -12,8 +18,7 @@
 }
 
 /* 
-   Estilos generales del cuerpo de la página.
-   Se define el fondo, el color del texto y la fuente principal.
+    Estilos generales de toda la pagina.
 */
 body{
     margin: 0;
@@ -22,18 +27,13 @@ body{
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
-/* =========================================================
-   TÍTULOS Y TEXTOS GENERALES
-   ========================================================= */
-
 /* 
-   Título principal del sitio.
-   Se usa en grande para destacar la marca.
+    Titulo principal MASHKA.
 */
 h1{
     text-align: center;
     color: white;
-    font-size: 56px;
+    font-size: 42px;
     margin-top: 40px;
     margin-bottom: 5px;
     letter-spacing: 6px;
@@ -41,16 +41,17 @@ h1{
 }
 
 /* 
-   Agrega automáticamente la palabra BOX al título principal.
-   Se usa amarillo para resaltar parte de la marca.
+    Agrega la palabra BOX automaticamente en amarillo.
 */
 h1::after{
     content: " BOX";
     color: #FFD21F;
 }
 
+
+
 /* 
-   Títulos principales de cada sección.
+    Titulos de secciones.
 */
 h2{
     text-align: center;
@@ -62,7 +63,7 @@ h2{
 }
 
 /* 
-   Títulos secundarios, usados dentro de tarjetas o bloques pequeños.
+    Titulos pequeños dentro de tarjetas.
 */
 h3{
     text-align: center;
@@ -71,7 +72,7 @@ h3{
 }
 
 /* 
-   Estilo general de los párrafos.
+    Parrafos generales.
 */
 p{
     text-align: center;
@@ -81,7 +82,7 @@ p{
 }
 
 /* 
-   Línea divisoria decorativa entre secciones.
+    Linea divisoria entre secciones.
 */
 hr{
     border: none;
@@ -90,13 +91,8 @@ hr{
     margin: 30px 20px;
 }
 
-/* =========================================================
-   SECCIONES GENERALES
-   ========================================================= */
-
 /* 
-   Estilo base para las secciones comunes.
-   Se usa como tarjeta con fondo oscuro y borde lateral azul.
+    Cada section funciona como una tarjeta principal.
 */
 section{
     background-color: #111111;
@@ -106,18 +102,22 @@ section{
     border-left: 4px solid #4A9ADD;
 }
 
-/* =========================================================
-   MENÚ DE NAVEGACIÓN
-   ========================================================= */
-
 /* 
-   Contenedor principal del menú.
-   Los enlaces se colocan en una sola fila centrada.
+    Menu de navegacion.
 */
 nav{
     text-align: center;
+    padding: 10px 0;
+}
+
+/* 
+    Contenedor del menu.
+    flex-wrap permite que los enlaces salten a otra fila si no caben.
+    justify-content: center los centra horizontalmente.
+*/
+nav {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     padding: 18px 12px;
@@ -126,10 +126,11 @@ nav{
 }
 
 /* 
-   Estilo de los enlaces del menú.
-   Se presentan como botones redondeados con efecto de vidrio.
+    Enlaces del menu como pildoras de cristal.
+    backdrop-filter: blur() crea el efecto de vidrio esmerilado:
+    desenfoca todo lo que esta DETRAS del enlace (la imagen del hero).
 */
-nav a{
+nav a {
     display: inline-block;
     width: auto;
     margin: 0;
@@ -139,19 +140,23 @@ nav a{
     letter-spacing: 0.5px;
     color: white;
     text-decoration: none;
+    /* Fondo translucido + desenfoque = efecto vidrio */
     background: rgba(17, 17, 17, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    /* Borde sutil con el azul de marca */
     border: 1px solid rgba(74, 154, 221, 0.4);
     border-radius: 25px;
+    /* Transicion suave para TODOS los cambios visuales */
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 /* 
-   Efecto visual cuando el usuario pasa el mouse sobre el menú.
+    Al pasar el mouse: brilla amarillo, se eleva ligeramente,
+    y proyecta un halo (box-shadow) del mismo color.
 */
-nav a:hover{
+nav a:hover {
     background: rgba(255, 210, 31, 0.12);
     border-color: #FFD21F;
     color: #FFD21F;
@@ -160,7 +165,23 @@ nav a:hover{
 }
 
 /* 
-   Estilo general para enlaces que no pertenecen al menú.
+    En pantallas chicas, los enlaces se hacen un poquito mas pequeños 
+    y se permite scroll horizontal si no caben todos en 2 filas.
+*/
+@media (max-width: 600px) {
+    nav {
+        gap: 8px;
+        padding: 12px 8px;
+    }
+    nav a {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+/* 
+    Estilo base para todos los demás enlaces (sin el formato de botón).
+    Hereda el color del texto y agrega un subrayado sutil al pasar el mouse.
 */
 a{
     color: inherit;
@@ -168,12 +189,8 @@ a{
     transition: color 0.2s;
 }
 
-/* =========================================================
-   IMÁGENES
-   ========================================================= */
-
 /* 
-   Estilo base para imágenes generales del sitio.
+    Imagenes generales.
 */
 img{
     display: block;
@@ -187,19 +204,17 @@ img{
 }
 
 /* 
-   Pequeño efecto de acercamiento al pasar el mouse.
+    Efecto sobre imagenes.
 */
 img:hover{
     transform: scale(1.02);
     border-color: #FFD21F;
 }
 
-/* =========================================================
-   LISTAS
-   ========================================================= */
+
 
 /* 
-   Estilo general de listas ordenadas y desordenadas.
+    Listas.
 */
 ul, ol{
     width: 85%;
@@ -209,30 +224,28 @@ ul, ol{
 }
 
 /* 
-   Espaciado y color para cada elemento de lista.
+    Elementos de lista.
 */
 li{
     margin-bottom: 8px;
     color: #e0e0e0;
 }
 
-/* =========================================================
-   TABLAS GENERALES
-   ========================================================= */
-
 /* 
-   Contenedor para tablas.
-   Mantiene la tabla organizada dentro de su sección.
+    Contenedor de la tabla.
+    Esto evita que la tabla se aplaste en celular.
+    Si no entra completa, se podra deslizar horizontalmente.
 */
 .tabla-contenedor{
     width: 100%;
-    overflow-x: visible;
+    overflow-x: auto;
     margin-top: 20px;
     border-radius: 10px;
 }
 
 /* 
-   Estilo base de las tablas.
+    Tabla general.
+    min-width evita que las columnas se hagan demasiado estrechas.
 */
 table{
     width: 100%;
@@ -245,7 +258,7 @@ table{
 }
 
 /* 
-   Encabezados de tabla.
+    Encabezados de tabla.
 */
 th{
     background-color: #FFD21F;
@@ -255,7 +268,7 @@ th{
 }
 
 /* 
-   Celdas y encabezados comparten padding, borde y alineación.
+    Celdas y encabezados.
 */
 th, td{
     padding: 14px;
@@ -265,7 +278,7 @@ th, td{
 }
 
 /* 
-   Celdas normales de la tabla.
+    Celdas normales.
 */
 td{
     color: #e0e0e0;
@@ -274,18 +287,14 @@ td{
 }
 
 /* 
-   Resalta una fila cuando el usuario pasa el mouse.
+    Efecto al pasar el mouse sobre una fila.
 */
 tr:hover td{
     background-color: #1a1a1a;
 }
 
-/* =========================================================
-   VIDEO, MAPA Y FORMULARIO GENERAL
-   ========================================================= */
-
 /* 
-   Estilo para videos insertados directamente.
+    Video.
 */
 video{
     display: block;
@@ -297,7 +306,7 @@ video{
 }
 
 /* 
-   Estilo para mapas o contenido incrustado con iframe.
+    Mapa.
 */
 iframe{
     display: block;
@@ -310,7 +319,7 @@ iframe{
 }
 
 /* 
-   Estilo general de formularios.
+    Formulario.
 */
 form{
     width: 90%;
@@ -323,7 +332,7 @@ form{
 }
 
 /* 
-   Etiquetas de los campos del formulario.
+    Etiquetas del formulario.
 */
 label{
     font-weight: bold;
@@ -333,7 +342,7 @@ label{
 }
 
 /* 
-   Campos de entrada, áreas de texto y listas desplegables.
+    Campos del formulario.
 */
 input, textarea, select{
     width: 100%;
@@ -350,7 +359,7 @@ input, textarea, select{
 }
 
 /* 
-   Estilo cuando un campo está seleccionado.
+    Efecto cuando se selecciona un campo.
 */
 input:focus, textarea:focus, select:focus{
     border: 2px solid #4A9ADD;
@@ -358,7 +367,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 /* 
-   Botón principal de envío.
+    Boton de enviar.
 */
 input[type="submit"]{
     background-color: #FFD21F;
@@ -372,7 +381,7 @@ input[type="submit"]{
 }
 
 /* 
-   Efecto del botón al pasar el mouse.
+    Efecto del boton.
 */
 input[type="submit"]:hover{
     background-color: #4A9ADD;
@@ -380,12 +389,12 @@ input[type="submit"]:hover{
     transform: scale(1.02);
 }
 
-/* =========================================================
-   FOOTER BÁSICO
-   ========================================================= */
+
+
+
 
 /* 
-   Pie de página general.
+    Footer.
 */
 footer{
     text-align: center;
@@ -396,32 +405,35 @@ footer{
 }
 
 /* 
-   Textos dentro del footer.
+    Parrafos del footer.
 */
 footer p{
     margin: 6px;
     font-size: 14px;
     color: #aaaaaa;
-}
-
-/* =========================================================
-   HERO PRINCIPAL
-   ========================================================= */
-
+} 
 /* 
-   Sección superior del sitio.
-   Incluye fondo con imagen, degradado oscuro, título, subtítulo y menú.
+/* 
+    Hero: la sección superior con logo, titulo y menú.
+    position: relative permite que el logo se posicione dentro del hero
+    en lugar de flotar sobre toda la página.
 */
 .hero{
     position: relative;
-    padding: 70px 40px 40px;
-    min-height: 460px;
+    padding: 50px 20px 30px;
+    /* Aumentamos la altura mínima para que en escritorio la imagen se vea completa */
+    min-height: 360px;
+    /* Centra el contenido vertical y horizontalmente */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    /* 
+        Capas de fondo:
+        - Arriba: degradado oscuro semitransparente para que el texto se lea
+        - Abajo: la imagen de fondo
+    */
     background-image: 
         linear-gradient(180deg, 
             rgba(5, 5, 5, 0.55) 0%, 
@@ -429,15 +441,16 @@ footer p{
             rgba(5, 5, 5, 1) 100%
         ),
         url('../Imagenes/fondo-fusionado.png');
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /* Linea amarilla sutil al pie del hero como acento de marca */
     border-bottom: 2px solid rgba(255, 210, 31, 0.3);
 }
 
 /* 
-   Ajusta el ancho del menú dentro del hero.
+    El nav tiene su propio ancho, asi que lo sacamos del flex centrado del hero 
+    para que ocupe el ancho normal de los enlaces.
 */
 .hero nav{
     width: 100%;
@@ -445,33 +458,57 @@ footer p{
 }
 
 /* 
-   Título principal dentro del hero.
-   La sombra mejora la lectura sobre la imagen.
+    Sombra suave en el titulo para que destaque sobre la imagen.
 */
 .hero h1{
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     margin-top: 0;
-    font-size: 56px;
 }
 
-/* 
-   Subtítulo dentro del hero.
-*/
 .hero .subtitulo-hero{
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-    font-size: 22px;
 }
 
-/* 
-   Frase motivacional del hero.
-*/
 .hero .frase-hero{
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* 
-   Logo decorativo del negocio.
-   Se ubica en la parte superior izquierda del hero.
+    En escritorio, en pantallas grandes, hacemos el hero mas alto 
+    para que la imagen se aprecie mejor.
+*/
+@media (min-width: 900px){
+    .hero{
+        min-height: 460px;
+        padding: 70px 40px 40px;
+    }
+    .hero h1{
+        font-size: 56px;
+    }
+    .hero .subtitulo-hero{
+        font-size: 22px;
+    }
+}
+
+/* 
+    Sombra suave en el titulo para que destaque sobre la imagen.
+*/
+.hero h1{
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero .subtitulo-hero{
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+
+/* 
+    En pantallas chicas, el logo se centra arriba y deja espacio
+    para que el título no choque con él.
+*/
+/* 
+    Logo de la pesa en el hero.
+    Es un contenedor que aloja el SVG y le da el efecto visual.
 */
 .logo-negocio{
     position: absolute;
@@ -479,30 +516,41 @@ footer p{
     left: 25px;
     width: 64px;
     height: 64px;
+    /* El color amarillo se hereda al SVG via currentColor */
     color: #FFD21F;
+    /* Halo brillante alrededor */
     filter: drop-shadow(0 0 12px rgba(255, 210, 31, 0.5));
     transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
 }
 
-/* 
-   El SVG del logo ocupa todo el contenedor.
-*/
+/* El SVG ocupa todo el contenedor */
 .logo-negocio svg{
     width: 100%;
     height: 100%;
 }
 
-/* 
-   Efecto del logo al pasar el mouse.
-*/
+/* Al pasar el mouse: gira un poquito y brilla mas fuerte */
 .logo-negocio:hover{
     transform: rotate(-8deg) scale(1.1);
     filter: drop-shadow(0 0 20px rgba(255, 210, 31, 0.9));
 }
 
+/* En pantallas chicas, el logo se centra arriba */
+@media (max-width: 600px){
+    .logo-negocio{
+        position: static;
+        margin: 0 auto 15px;
+        width: 56px;
+        height: 56px;
+    }
+    .hero h1{
+        margin-top: 10px;
+    }
+}
+
 /* 
-   Subtítulo TRAINING CLUB.
+    Subtitulo TRAINING CLUB del hero.
 */
 .subtitulo-hero{
     color: white;
@@ -515,20 +563,20 @@ footer p{
 }
 
 /* 
-   Frase debajo del título principal.
+    Frase principal debajo del titulo.
 */
 .frase-hero{
     color: #aaaaaa;
     font-style: italic;
     letter-spacing: 1px;
 }
-
-/* =========================================================
-   SECCIÓN NOSOTROS
-   ========================================================= */
+/* ═══════════════════════════════════════════════════════
+   SECCION NOSOTROS (Bienvenida + Sobre nosotros refundidos)
+   ═══════════════════════════════════════════════════════ */
 
 /* 
-   Contenedor principal de la sección Nosotros.
+    Override del estilo de section general para esta seccion concreta.
+    Quitamos el border-left azul porque vamos a usar otro estilo.
 */
 .nosotros{
     background-color: #0d0d0d;
@@ -536,6 +584,7 @@ footer p{
     border-radius: 20px;
     padding: 60px 30px;
     margin: 40px 20px;
+    /* Borde sutil con glow azul difuminado */
     border: 1px solid rgba(74, 154, 221, 0.15);
     box-shadow: 0 0 60px rgba(74, 154, 221, 0.08);
     overflow: hidden;
@@ -543,19 +592,28 @@ footer p{
 }
 
 /* 
-   Distribución de la sección Nosotros en dos columnas.
+    Grid de 2 columnas en escritorio.
+    En movil colapsa automaticamente a 1 columna.
 */
 .nosotros-grid{
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
 }
 
+@media (min-width: 900px){
+    .nosotros-grid{
+        grid-template-columns: 1.1fr 1fr;
+        gap: 60px;
+    }
+}
+
 /* 
-   Etiqueta pequeña superior para identificar secciones.
+    Etiqueta pequeña arriba del titulo.
+    Como un "tag" o "kicker" tipico en sitios modernos.
 */
 .seccion-tag{
     display: inline-block;
@@ -572,10 +630,11 @@ footer p{
 }
 
 /* 
-   Título principal de la sección Nosotros.
+    Titulo de la seccion. Reescrito mas grande y mas potente.
+    Override del border-bottom amarillo del h2 generico.
 */
 .nosotros-titulo{
-    font-size: 48px;
+    font-size: 38px;
     font-weight: 800;
     line-height: 1.1;
     color: white;
@@ -586,15 +645,20 @@ footer p{
     letter-spacing: -0.5px;
 }
 
-/* 
-   Resalta palabras importantes en amarillo.
-*/
+@media (min-width: 900px){
+    .nosotros-titulo{
+        font-size: 48px;
+    }
+}
+
+/* La parte amarilla del titulo */
 .amarillo{
     color: #FFD21F;
 }
 
 /* 
-   Texto principal de presentación.
+    Texto principal (lead).
+    Override del padding y align del p generico.
 */
 .nosotros-lead{
     font-size: 18px;
@@ -605,9 +669,6 @@ footer p{
     margin-bottom: 16px;
 }
 
-/* 
-   Texto secundario de la sección Nosotros.
-*/
 .nosotros-bajada{
     font-size: 15px;
     color: #aaaaaa;
@@ -618,17 +679,22 @@ footer p{
 }
 
 /* 
-   Contenedor de estadísticas o características breves.
+    Grid de stats: 3 columnas en escritorio, 1 en movil.
 */
 .stats{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    grid-template-columns: 1fr;
+    gap: 18px;
 }
 
-/* 
-   Tarjeta individual de estadística.
-*/
+@media (min-width: 700px){
+    .stats{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+}
+
+/* Cada tarjeta de stat */
 .stat{
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -638,18 +704,13 @@ footer p{
     transition: all 0.3s ease;
 }
 
-/* 
-   Efecto visual de cada tarjeta.
-*/
 .stat:hover{
     border-color: rgba(255, 210, 31, 0.4);
     background: rgba(255, 210, 31, 0.04);
     transform: translateY(-3px);
 }
 
-/* 
-   Contenedor del ícono dentro de la estadística.
-*/
+/* Cuadradito que contiene el icono SVG */
 .stat-icono{
     width: 44px;
     height: 44px;
@@ -662,9 +723,6 @@ footer p{
     margin-bottom: 12px;
 }
 
-/* 
-   Título dentro de cada tarjeta.
-*/
 .stat h3{
     color: white;
     font-size: 16px;
@@ -674,9 +732,6 @@ footer p{
     padding: 0;
 }
 
-/* 
-   Texto dentro de cada tarjeta.
-*/
 .stat p{
     font-size: 13px;
     color: #aaaaaa;
@@ -687,19 +742,21 @@ footer p{
 }
 
 /* 
-   Contenedor de imagen de la sección Nosotros.
+    Lado derecho: contenedor de la imagen.
 */
 .nosotros-imagen{
     position: relative;
     border-radius: 20px;
     overflow: hidden;
+    /* Halo de marca alrededor de la imagen */
     box-shadow: 
         0 20px 50px rgba(0, 0, 0, 0.5),
         0 0 0 1px rgba(255, 210, 31, 0.2);
 }
 
 /* 
-   Imagen interna de la sección Nosotros.
+    La imagen ocupa todo el contenedor.
+    Override del estilo generico de img.
 */
 .nosotros-imagen img{
     width: 100%;
@@ -714,15 +771,13 @@ footer p{
     transition: transform 0.5s ease;
 }
 
-/* 
-   Acercamiento suave de la imagen.
-*/
 .nosotros-imagen:hover img{
     transform: scale(1.05);
 }
 
 /* 
-   Tarjeta pequeña que se muestra sobre la imagen.
+    Badge flotante en la esquina inferior izquierda de la imagen.
+    Tipo "estamos aqui" como una tarjetita de ubicacion.
 */
 .imagen-badge{
     position: absolute;
@@ -736,9 +791,6 @@ footer p{
     border: 1px solid rgba(255, 210, 31, 0.3);
 }
 
-/* 
-   Texto principal del badge.
-*/
 .imagen-badge strong{
     display: block;
     color: #FFD21F;
@@ -747,12 +799,2299 @@ footer p{
     letter-spacing: 0.5px;
 }
 
-/* 
-   Texto secundario del badge.
-*/
 .imagen-badge span{
     display: block;
     color: #aaaaaa;
     font-size: 12px;
     margin-top: 2px;
+}
+/* ═══════════════════════════════════════════════════════
+   GALERIA TIPO MOSAICO BENTO - DINAMICA E INTERACTIVA
+   ═══════════════════════════════════════════════════════ */
+
+.galeria-section{
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    margin: 80px 0;
+    padding: 0 20px;
+}
+
+.galeria-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.galeria-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 16px 0 12px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .galeria-titulo{
+        font-size: 46px;
+    }
+}
+
+.galeria-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* 
+    Grid maestro: 6 columnas x 6 filas en escritorio.
+    Permite que cada imagen ocupe celdas distintas creando un mosaico orgánico.
+    En movil: 2 columnas con tamaños variados.
+*/
+.galeria-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+    gap: 18px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 700px){
+    .galeria-grid{
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 130px;
+        gap: 22px;
+    }
+}
+
+@media (min-width: 1100px){
+    .galeria-grid{
+        grid-auto-rows: 150px;
+        gap: 26px;
+    }
+}
+
+/* 
+    Cada imagen ocupa una posicion personalizada en el mosaico.
+    En escritorio el patron es:
+    [  1  ][  1  ][  2  ][  3  ][  3  ][  3  ]
+    [  1  ][  1  ][  2  ][  3  ][  3  ][  3  ]
+    [  1  ][  1  ][  2  ][  4  ][  4  ][  6  ]
+    [  5  ][  5  ][  5  ][  4  ][  4  ][  6  ]
+    [  5  ][  5  ][  5  ][  4  ][  4  ][  6  ]
+*/
+
+/* Imagen 1: grande arriba izquierda - 2 cols x 3 rows */
+.galeria-item:nth-child(1){
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Imagen 2: vertical alta - 1 col x 3 rows */
+.galeria-item:nth-child(2){
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+/* Imagen 3: ancha arriba derecha - 3 cols x 2 rows */
+.galeria-item:nth-child(3){
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+/* Imagen 4: media derecha - 2 cols x 2 rows */
+.galeria-item:nth-child(4){
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Imagen 5: ancha abajo - 3 cols x 2 rows */
+.galeria-item:nth-child(5){
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Imagen 6: vertical abajo derecha - 1 col x 2 rows */
+.galeria-item:nth-child(6){
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* En escritorio el patron cambia para crear mas variedad */
+@media (min-width: 700px){
+    .galeria-item:nth-child(1){
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+    .galeria-item:nth-child(2){
+        grid-column: span 1;
+        grid-row: span 3;
+    }
+    .galeria-item:nth-child(3){
+        grid-column: span 3;
+        grid-row: span 2;
+    }
+    .galeria-item:nth-child(4){
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    .galeria-item:nth-child(5){
+        grid-column: span 3;
+        grid-row: span 2;
+    }
+    .galeria-item:nth-child(6){
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+}
+
+/* 
+    Cada figura: contenedor de imagen con overlay.
+    Tiene una animacion sutil de flotacion para dar vida.
+*/
+.galeria-item{
+    position: relative;
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transition: 
+        transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease;
+    /* Animacion de flotacion: cada item flota suavemente */
+    animation: flotar 6s ease-in-out infinite;
+}
+
+/* Cada item flota con un timing diferente para que no se muevan al unisono */
+.galeria-item:nth-child(1){ animation-delay: 0s; }
+.galeria-item:nth-child(2){ animation-delay: 1s; }
+.galeria-item:nth-child(3){ animation-delay: 2s; }
+.galeria-item:nth-child(4){ animation-delay: 3s; }
+.galeria-item:nth-child(5){ animation-delay: 4s; }
+.galeria-item:nth-child(6){ animation-delay: 5s; }
+
+@keyframes flotar{
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* 
+    Cada imagen tiene un color de glow distinto, alternando
+    los 3 colores de la paleta de marca.
+    Box-shadow doble: una sombra base + un halo de color.
+*/
+.galeria-item:nth-child(1){
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 210, 31, 0.2),
+        0 0 30px rgba(255, 210, 31, 0.15);
+}
+.galeria-item:nth-child(2){
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(74, 154, 221, 0.25),
+        0 0 30px rgba(74, 154, 221, 0.15);
+}
+.galeria-item:nth-child(3){
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 210, 31, 0.2),
+        0 0 30px rgba(255, 210, 31, 0.15);
+}
+.galeria-item:nth-child(4){
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(74, 154, 221, 0.25),
+        0 0 30px rgba(74, 154, 221, 0.15);
+}
+.galeria-item:nth-child(5){
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 210, 31, 0.2),
+        0 0 30px rgba(255, 210, 31, 0.15);
+}
+.galeria-item:nth-child(6){
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(74, 154, 221, 0.25),
+        0 0 30px rgba(74, 154, 221, 0.15);
+}
+
+/* 
+    Hover: la imagen se eleva, brilla mas fuerte y pausa la flotacion.
+    Las amarillas brillan amarillo, las azules brillan azul.
+*/
+.galeria-item:hover{
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.02);
+    z-index: 2;
+}
+
+.galeria-item:nth-child(odd):hover{
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(255, 210, 31, 0.7),
+        0 0 50px rgba(255, 210, 31, 0.4);
+}
+
+.galeria-item:nth-child(even):hover{
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(74, 154, 221, 0.7),
+        0 0 50px rgba(74, 154, 221, 0.4);
+}
+
+/* 
+    La imagen: ocupa todo el contenedor.
+    Override del estilo generico de img.
+*/
+.galeria-item img{
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.galeria-item:hover img{
+    transform: scale(1.1);
+}
+
+/* Caption con degradado oscuro abajo */
+.galeria-item figcaption{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 18px;
+    background: linear-gradient(180deg, 
+        rgba(0, 0, 0, 0) 50%, 
+        rgba(0, 0, 0, 0.85) 100%);
+    transition: background 0.3s ease;
+}
+
+.galeria-item:hover figcaption{
+    background: linear-gradient(180deg, 
+        rgba(0, 0, 0, 0.2) 0%, 
+        rgba(0, 0, 0, 0.9) 100%);
+}
+
+/* Etiqueta de categoria - alterna amarillo y azul */
+.galeria-categoria{
+    display: inline-block;
+    align-self: flex-start;
+    color: #050505;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.galeria-item:nth-child(odd) .galeria-categoria{
+    background: rgba(255, 210, 31, 0.95);
+}
+
+.galeria-item:nth-child(even) .galeria-categoria{
+    background: rgba(74, 154, 221, 0.95);
+    color: white;
+}
+
+.galeria-titulo-card{
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+}
+
+@media (min-width: 700px){
+    .galeria-titulo-card{
+        font-size: 18px;
+    }
+}
+
+.galeria-item:hover .galeria-categoria,
+.galeria-item:hover .galeria-titulo-card{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 
+    "Empuje" entre vecinas: cuando pasas el mouse sobre una,
+    las de al lado se inclinan ligeramente como si la "saludaran".
+*/
+.galeria-grid:has(.galeria-item:hover) .galeria-item:not(:hover){
+    opacity: 0.7;
+    transform: scale(0.98);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+/* ═══════════════════════════════════════════════════════
+   BENEFICIOS - Tarjetas con iconos
+   ═══════════════════════════════════════════════════════ */
+
+.beneficios-section{
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    margin: 80px 0;
+    padding: 0 20px;
+}
+
+.beneficios-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.beneficios-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 16px 0 12px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .beneficios-titulo{
+        font-size: 46px;
+    }
+}
+
+.beneficios-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* 
+    Grid de beneficios: 2 columnas en movil (no 1, asi llenan ancho),
+    4 columnas en escritorio.
+*/
+.beneficios-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 900px){
+    .beneficios-grid{
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+    }
+}
+
+/* Tarjeta de beneficio */
+.beneficio-card{
+    background: linear-gradient(135deg, 
+        rgba(13, 13, 13, 0.9) 0%, 
+        rgba(17, 17, 17, 0.7) 100%);
+    border: 1px solid rgba(74, 154, 221, 0.2);
+    border-radius: 18px;
+    padding: 28px 22px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo que cruza la tarjeta al hacer hover */
+.beneficio-card::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 210, 31, 0.08) 50%, 
+        transparent 100%);
+    transition: left 0.6s ease;
+}
+
+.beneficio-card:hover::before{
+    left: 100%;
+}
+
+.beneficio-card:hover{
+    transform: translateY(-8px);
+    border-color: rgba(255, 210, 31, 0.5);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 210, 31, 0.15);
+}
+
+/* Cuadradito que contiene el icono SVG */
+.beneficio-icono{
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, 
+        rgba(255, 210, 31, 0.15) 0%, 
+        rgba(74, 154, 221, 0.15) 100%);
+    border: 1px solid rgba(255, 210, 31, 0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFD21F;
+    transition: all 0.3s ease;
+}
+
+.beneficio-icono svg{
+    width: 32px;
+    height: 32px;
+}
+
+/* Al hacer hover sobre la tarjeta, el icono pulsa y se agranda */
+.beneficio-card:hover .beneficio-icono{
+    transform: scale(1.1) rotate(-5deg);
+    background: linear-gradient(135deg, 
+        rgba(255, 210, 31, 0.25) 0%, 
+        rgba(255, 210, 31, 0.1) 100%);
+    border-color: #FFD21F;
+    box-shadow: 0 0 20px rgba(255, 210, 31, 0.4);
+}
+
+.beneficio-card h3{
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-align: center;
+    border: none;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.beneficio-card:hover h3{
+    color: #FFD21F;
+}
+
+.beneficio-card p{
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PLANES - Tarjetas de membresia
+   ═══════════════════════════════════════════════════════ */
+
+.planes-section{
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    margin: 80px 0;
+    padding: 0 20px;
+}
+
+.planes-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.planes-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 16px 0 12px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .planes-titulo{
+        font-size: 46px;
+    }
+}
+
+.planes-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* 
+    Grid de planes: 1 columna en movil, 3 en tablet, 5 en escritorio grande.
+    En escritorio mediano: 3 arriba, 2 abajo (auto-fill se acomoda).
+*/
+.planes-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px){
+    .planes-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1000px){
+    .planes-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1300px){
+    .planes-grid{
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+    }
+}
+
+/* Tarjeta de plan */
+.plan-card{
+    background: linear-gradient(180deg, 
+        #0d0d0d 0%, 
+        #111111 100%);
+    border: 1px solid rgba(74, 154, 221, 0.2);
+    border-radius: 18px;
+    padding: 28px 22px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card:hover{
+    transform: translateY(-6px);
+    border-color: rgba(74, 154, 221, 0.6);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(74, 154, 221, 0.15);
+}
+
+/* Plan destacado: borde amarillo, glow amarillo */
+.plan-destacado{
+    border: 2px solid #FFD21F;
+    background: linear-gradient(180deg, 
+        rgba(255, 210, 31, 0.05) 0%, 
+        #111111 100%);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 210, 31, 0.2);
+}
+
+.plan-destacado:hover{
+    border-color: #FFD21F;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(255, 210, 31, 0.35);
+}
+
+/* Badge "RECOMENDADO" arriba del plan destacado */
+.plan-badge{
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #FFD21F 0%, #FFC107 100%);
+    color: #050505;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 210, 31, 0.4);
+    white-space: nowrap;
+}
+
+/* Header del plan: nombre + tag pequeño */
+.plan-card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.plan-card-header h3{
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+    text-align: left;
+    border: none;
+    padding: 0;
+}
+
+.plan-tag{
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: rgba(74, 154, 221, 0.15);
+    color: #4A9ADD;
+    border: 1px solid rgba(74, 154, 221, 0.3);
+}
+
+.plan-destacado .plan-tag{
+    background: rgba(255, 210, 31, 0.15);
+    color: #FFD21F;
+    border-color: rgba(255, 210, 31, 0.4);
+}
+
+/* Bloque del precio: $ XX / mes */
+.plan-precio{
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 14px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.plan-precio .moneda{
+    font-size: 22px;
+    color: #FFD21F;
+    font-weight: 700;
+}
+
+.plan-precio .numero{
+    font-size: 48px;
+    color: white;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.plan-precio .periodo{
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-left: 4px;
+}
+
+/* Descripcion del plan */
+.plan-desc{
+    color: #aaaaaa;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 18px 0;
+}
+
+/* Lista de features con checkmarks */
+.plan-features{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.plan-features li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    color: #e0e0e0;
+    font-size: 13px;
+}
+
+.plan-features .check{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: rgba(74, 154, 221, 0.2);
+    color: #4A9ADD;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.plan-destacado .plan-features .check{
+    background: rgba(255, 210, 31, 0.2);
+    color: #FFD21F;
+}
+
+/* Boton CTA del plan */
+.plan-btn{
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(74, 154, 221, 0.1);
+    color: #4A9ADD;
+    border: 1px solid rgba(74, 154, 221, 0.4);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.plan-btn:hover{
+    background: #4A9ADD;
+    color: white;
+    border-color: #4A9ADD;
+    box-shadow: 0 6px 20px rgba(74, 154, 221, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Boton del plan destacado: amarillo solido */
+.plan-btn-destacado{
+    background: linear-gradient(90deg, #FFD21F 0%, #FFC107 100%);
+    color: #050505;
+    border-color: #FFD21F;
+    box-shadow: 0 4px 16px rgba(255, 210, 31, 0.3);
+}
+
+.plan-btn-destacado:hover{
+    background: linear-gradient(90deg, #FFC107 0%, #FFD21F 100%);
+    color: #050505;
+    box-shadow: 0 8px 24px rgba(255, 210, 31, 0.5);
+}
+/* ═══════════════════════════════════════════════════════
+   TABLA DE COMPARACION
+   ═══════════════════════════════════════════════════════ */
+
+.comparacion-section{
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    margin: 80px 0;
+    padding: 0 20px;
+}
+
+.comparacion-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.comparacion-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 16px 0 12px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .comparacion-titulo{
+        font-size: 46px;
+    }
+}
+
+.comparacion-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* 
+    Wrapper que permite scroll horizontal en movil
+    si la tabla no entra completa.
+*/
+.tabla-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    background: linear-gradient(180deg, #0d0d0d 0%, #111111 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(74, 154, 221, 0.15);
+    padding: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Tabla nueva (override de los estilos viejos) */
+.tabla-comparacion{
+    width: 100%;
+    min-width: 500px;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: transparent;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.tabla-comparacion thead th{
+    background: linear-gradient(90deg, #FFD21F 0%, #FFC107 100%);
+    color: #050505;
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.tabla-comparacion thead th:first-child{
+    border-radius: 12px 0 0 0;
+}
+
+.tabla-comparacion thead th:last-child{
+    border-radius: 0 12px 0 0;
+}
+
+.tabla-comparacion tbody td{
+    padding: 16px 20px;
+    color: #e0e0e0;
+    font-size: 14px;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+.tabla-comparacion tbody td strong{
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+/* Filas alternadas con un tinte sutil */
+.tabla-comparacion tbody tr:nth-child(even) td{
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Hover en filas */
+.tabla-comparacion tbody tr:hover td{
+    background: rgba(74, 154, 221, 0.08);
+}
+
+/* Quita el borde de la ultima fila */
+.tabla-comparacion tbody tr:last-child td{
+    border-bottom: none;
+}
+
+/* Fila destacada (Plan Mensual) */
+.tabla-destacada td{
+    background: rgba(255, 210, 31, 0.06) !important;
+    border-bottom-color: rgba(255, 210, 31, 0.15) !important;
+}
+
+.tabla-destacada:hover td{
+    background: rgba(255, 210, 31, 0.12) !important;
+}
+
+.tabla-destacada td strong{
+    color: #FFD21F;
+}
+
+/* Estrellita junto al plan destacado */
+.tabla-star{
+    color: #FFD21F;
+    margin-left: 4px;
+    font-size: 14px;
+}
+
+/* Pills para los beneficios */
+.tabla-pill{
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(74, 154, 221, 0.15);
+    color: #4A9ADD;
+    border: 1px solid rgba(74, 154, 221, 0.3);
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tabla-pill-amarillo{
+    background: rgba(255, 210, 31, 0.15);
+    color: #FFD21F;
+    border-color: rgba(255, 210, 31, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════
+   HORARIOS - Dos columnas lado a lado
+   ═══════════════════════════════════════════════════════ */
+
+.horarios-section{
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    margin: 80px 0;
+    padding: 0 20px;
+}
+
+.horarios-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.horarios-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 16px 0 12px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .horarios-titulo{
+        font-size: 46px;
+    }
+}
+
+.horarios-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* 
+    Grid: 1 columna en movil, 2 columnas lado a lado en escritorio.
+*/
+.horarios-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 700px){
+    .horarios-grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}
+
+/* Bloque de horario (mañana o tarde) */
+.horario-bloque{
+    background: linear-gradient(180deg, 
+        rgba(13, 13, 13, 0.95) 0%, 
+        rgba(17, 17, 17, 0.95) 100%);
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid rgba(74, 154, 221, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Mañana: acento amarillo */
+.horario-manana{
+    border-left: 4px solid #FFD21F;
+}
+
+.horario-manana:hover{
+    border-color: rgba(255, 210, 31, 0.5);
+    border-left-color: #FFD21F;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 
+                0 0 30px rgba(255, 210, 31, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Tarde: acento azul */
+.horario-tarde{
+    border-left: 4px solid #4A9ADD;
+}
+
+.horario-tarde:hover{
+    border-color: rgba(74, 154, 221, 0.5);
+    border-left-color: #4A9ADD;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(74, 154, 221, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Header del bloque: icono + titulo + rango */
+.horario-bloque-header{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.horario-icono{
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.horario-manana .horario-icono{
+    background: rgba(255, 210, 31, 0.15);
+    color: #FFD21F;
+    border: 1px solid rgba(255, 210, 31, 0.3);
+}
+
+.horario-tarde .horario-icono{
+    background: rgba(74, 154, 221, 0.15);
+    color: #4A9ADD;
+    border: 1px solid rgba(74, 154, 221, 0.3);
+}
+
+.horario-bloque h3{
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 2px 0;
+    text-align: left;
+    border: none;
+    padding: 0;
+}
+
+.horario-rango{
+    font-size: 12px;
+    color: #aaaaaa;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Lista de horas dentro del bloque */
+.horario-lista{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.horario-lista li{
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.25s ease;
+    cursor: default;
+}
+
+.horario-lista li:hover{
+    background: rgba(255, 255, 255, 0.06);
+    transform: scale(1.05);
+}
+
+.horario-manana .horario-lista li:hover{
+    border-color: rgba(255, 210, 31, 0.5);
+    color: #FFD21F;
+}
+
+.horario-tarde .horario-lista li:hover{
+    border-color: rgba(74, 154, 221, 0.5);
+    color: #4A9ADD;
+}
+
+.hora{
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: color 0.25s ease;
+}
+
+.horario-manana .horario-lista li:hover .hora{
+    color: #FFD21F;
+}
+
+.horario-tarde .horario-lista li:hover .hora{
+    color: #4A9ADD;
+}
+
+.hora-meridiano{
+    color: #aaaaaa;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+/* ═══════════════════════════════════════════════════════
+   MULTIMEDIA - Video destacado
+   ═══════════════════════════════════════════════════════ */
+
+.multimedia-section{
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    margin: 80px 0;
+    padding: 0 20px;
+}
+
+.multimedia-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.multimedia-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 16px 0 12px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .multimedia-titulo{
+        font-size: 46px;
+    }
+}
+
+.multimedia-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.multimedia-video{
+    /* Mas chico porque el video es vertical (filmado con celular) */
+    max-width: 380px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 210, 31, 0.2),
+        0 0 40px rgba(255, 210, 31, 0.1);
+    /* Limite de altura para que no sea ridiculamente alto */
+    max-height: 680px;
+}
+
+/* Override del estilo generico de video */
+.multimedia-video video{
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: 680px;
+    margin: 0;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    /* Si fuera horizontal en el futuro, object-fit lo manejaria */
+    object-fit: cover;
+}
+
+/* En tablet y escritorio dejamos un pelin mas grande pero sigue siendo vertical */
+@media (min-width: 700px){
+    .multimedia-video{
+        max-width: 420px;
+        max-height: 720px;
+    }
+    .multimedia-video video{
+        max-height: 720px;
+    }
+}
+
+/* Override del estilo generico de video */
+.multimedia-video video{
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    border: none;
+    border-radius: 20px;
+    display: block;
+}
+
+/* ═══════════════════════════════════════════════════════
+   UBICACION - Layout 2 columnas estilo DAFEC
+   ═══════════════════════════════════════════════════════ */
+
+.ubicacion-section{
+    background: linear-gradient(180deg, 
+        rgba(13, 13, 13, 0.95) 0%, 
+        rgba(5, 5, 5, 1) 100%);
+    border-left: none;
+    border-radius: 24px;
+    margin: 60px 20px;
+    padding: 60px 30px;
+    border: 1px solid rgba(74, 154, 221, 0.15);
+}
+
+.ubicacion-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 900px){
+    .ubicacion-container{
+        grid-template-columns: 1fr 1.2fr;
+        gap: 60px;
+    }
+}
+
+.ubicacion-info .seccion-tag{
+    color: #4A9ADD;
+    background: rgba(74, 154, 221, 0.15);
+    border-color: rgba(74, 154, 221, 0.3);
+}
+
+.ubicacion-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: left;
+    border: none;
+    padding: 0;
+    margin: 16px 0 12px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .ubicacion-titulo{
+        font-size: 44px;
+    }
+}
+
+.ubicacion-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 32px 0;
+}
+
+/* Lista de detalles: direccion, telefono, horario, whatsapp */
+.ubicacion-detalles{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.ubicacion-item{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+/* Cuadrado del icono - amarillo de marca */
+.ubicacion-icono{
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 210, 31, 0.15);
+    color: #FFD21F;
+    border: 1px solid rgba(255, 210, 31, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* WhatsApp en verde */
+.ubicacion-icono-wa{
+    background: rgba(37, 211, 102, 0.15);
+    color: #25d366;
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
+.ubicacion-item strong{
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.ubicacion-item p{
+    font-size: 14px;
+    color: #aaaaaa;
+    line-height: 1.5;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.ubicacion-link{
+    font-size: 14px;
+    color: #aaaaaa;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+    display: block;
+}
+
+.ubicacion-link:hover{
+    color: #FFD21F;
+}
+
+/* Mapa - lado derecho */
+.ubicacion-mapa{
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(74, 154, 221, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.ubicacion-mapa iframe{
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER NUEVO
+   ═══════════════════════════════════════════════════════ */
+
+.footer{
+    background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 60px 20px 30px;
+    border-top: 1px solid rgba(255, 210, 31, 0.15);
+    margin-top: 60px;
+}
+
+.footer-container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 700px){
+    .footer-grid{
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 50px;
+    }
+}
+
+/* Columna de marca */
+.footer-marca{
+    max-width: 400px;
+}
+
+.footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #FFD21F;
+    margin-bottom: 16px;
+}
+
+.footer-logo span{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.footer-logo strong{
+    color: #FFD21F;
+    font-weight: 800;
+}
+
+.footer-desc{
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: left;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+/* Botones de redes sociales */
+.footer-social{
+    display: flex;
+    gap: 10px;
+}
+
+/* 
+    Override de los estilos genericos de a porque se hereda como pildora.
+    width: auto + display: flex hacen que el boton sea cuadrado del tamaño correcto.
+*/
+.social-btn{
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+.social-btn:hover{
+    transform: translateY(-3px);
+}
+
+.social-fb:hover{
+    background: rgba(24, 119, 242, 0.25);
+    color: #1877f2;
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.3);
+}
+
+.social-ig:hover{
+    background: rgba(225, 48, 108, 0.25);
+    color: #e1306c;
+    box-shadow: 0 6px 20px rgba(225, 48, 108, 0.3);
+}
+
+.social-wa:hover{
+    background: rgba(37, 211, 102, 0.25);
+    color: #25d366;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* Columnas de links del footer */
+.footer-col h4{
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 800;
+    margin: 0 0 18px 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: left;
+    border: none;
+    padding: 0;
+}
+
+.footer-col ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+.footer-col ul li{
+    margin-bottom: 10px;
+}
+
+/* Override total para los a del footer (no deben ser pildoras) */
+.footer-col ul a{
+    display: inline;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s ease;
+    letter-spacing: normal;
+    font-weight: normal;
+}
+
+.footer-col ul a:hover{
+    color: #FFD21F;
+    background: none;
+    border: none;
+}
+
+/* Linea inferior del footer */
+.footer-bottom{
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 700px){
+    .footer-bottom{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.footer-bottom p{
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BOTON FLOTANTE DE WHATSAPP
+   ═══════════════════════════════════════════════════════ */
+
+/* 
+    Override fuerte porque el a generico le pone width 85%, padding, border, etc.
+    Aqui forzamos que sea un circulo perfecto y este en posicion fija.
+*/
+.whatsapp-float{
+    position: fixed !important;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    width: 60px !important;
+    height: 60px;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #25d366 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 4px 20px rgba(37, 211, 102, 0.4),
+        0 0 0 0 rgba(37, 211, 102, 0.5);
+    transition: all 0.3s ease;
+    animation: pulsoWhatsapp 2.5s ease-in-out infinite;
+    text-align: center;
+}
+
+.whatsapp-float:hover{
+    transform: scale(1.1);
+    background: #20b958 !important;
+    border: none !important;
+    box-shadow: 
+        0 8px 30px rgba(37, 211, 102, 0.6),
+        0 0 0 12px rgba(37, 211, 102, 0.1);
+    animation-play-state: paused;
+}
+
+/* Pulso animado constante para llamar la atencion */
+@keyframes pulsoWhatsapp{
+    0%, 100% {
+        box-shadow: 
+            0 4px 20px rgba(37, 211, 102, 0.4),
+            0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 4px 25px rgba(37, 211, 102, 0.5),
+            0 0 0 14px rgba(37, 211, 102, 0);
+    }
+}
+
+/* En movil un poco mas pequeño */
+@media (max-width: 600px){
+    .whatsapp-float{
+        bottom: 18px;
+        right: 18px;
+        width: 54px !important;
+        height: 54px;
+    }
+    .whatsapp-float svg{
+        width: 24px;
+        height: 24px;
+    }
+}
+/* ═══════════════════════════════════════════════════════
+   SECCION WHATSAPP DIRECTO
+   ═══════════════════════════════════════════════════════ */
+
+.whatsapp-section{
+    background: linear-gradient(180deg, 
+        rgba(13, 13, 13, 0.95) 0%, 
+        rgba(5, 5, 5, 0.98) 100%);
+    border-left: none;
+    border-radius: 24px;
+    margin: 60px 20px;
+    padding: 60px 30px;
+    border: 1px solid rgba(37, 211, 102, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Resplandor verde decorativo de fondo */
+.whatsapp-section::before{
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.whatsapp-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 900px){
+    .whatsapp-container{
+        grid-template-columns: 1.1fr 1fr;
+        gap: 60px;
+    }
+}
+
+/* Tag del titulo: en verde para asociar con WhatsApp */
+.whatsapp-tag{
+    color: #25d366 !important;
+    background: rgba(37, 211, 102, 0.15) !important;
+    border-color: rgba(37, 211, 102, 0.3) !important;
+}
+
+.whatsapp-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: left;
+    border: none;
+    padding: 0;
+    margin: 16px 0 14px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .whatsapp-titulo{
+        font-size: 44px;
+    }
+}
+
+/* La parte verde "WhatsApp" del titulo */
+.verde-wa{
+    color: #25d366;
+}
+
+.whatsapp-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.7;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 28px 0;
+}
+
+/* Lista de features */
+.whatsapp-features{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.wa-feature{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.wa-check{
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    background: rgba(37, 211, 102, 0.2);
+    color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+/* Boton grande de WhatsApp - override del a generico */
+.btn-whatsapp-grande{
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto !important;
+    margin: 0 0 14px 0 !important;
+    padding: 14px 28px !important;
+    background: #25d366 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 14px !important;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-grande:hover{
+    background: #20b958 !important;
+    color: white !important;
+    border: none !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+}
+
+.btn-whatsapp-grande svg{
+    flex-shrink: 0;
+}
+
+.wa-numero{
+    color: #25d366;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+/* ─── Mockup del telefono ─── */
+
+.whatsapp-visual{
+    display: flex;
+    justify-content: center;
+}
+
+.phone-mockup{
+    width: 100%;
+    max-width: 340px;
+    background: #ece5dd;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 8px #1a1a1a,
+        0 0 0 9px #333;
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease;
+}
+
+.phone-mockup:hover{
+    transform: rotate(0deg) scale(1.02);
+}
+
+/* Header del mockup: avatar + nombre + estado */
+.phone-header{
+    background: #075e54;
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.phone-avatar{
+    width: 40px;
+    height: 40px;
+    background: #FFD21F;
+    color: #050505;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.phone-avatar svg{
+    width: 24px;
+    height: 24px;
+}
+
+.phone-name{
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.phone-status{
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+/* Cuerpo de mensajes */
+.phone-messages{
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #ece5dd;
+    /* Patron sutil de fondo de WhatsApp */
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    min-height: 320px;
+}
+
+.msg{
+    max-width: 75%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: #303030;
+    word-wrap: break-word;
+    animation: slideMsg 0.5s ease-out backwards;
+}
+
+.msg-recibido{
+    background: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.msg-enviado{
+    background: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Animacion escalonada de los mensajes al cargar */
+.msg:nth-child(1){ animation-delay: 0.3s; }
+.msg:nth-child(2){ animation-delay: 0.8s; }
+.msg:nth-child(3){ animation-delay: 1.5s; }
+.msg:nth-child(4){ animation-delay: 2.2s; }
+
+@keyframes slideMsg{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Indicador de "escribiendo..." con 3 puntitos pulsantes */
+.msg-typing{
+    display: flex;
+    gap: 4px;
+    padding: 12px;
+    width: fit-content;
+}
+
+.typing-dot{
+    width: 7px;
+    height: 7px;
+    background: #999;
+    border-radius: 50%;
+    animation: typingPulse 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2){ animation-delay: 0.2s; }
+.typing-dot:nth-child(3){ animation-delay: 0.4s; }
+
+@keyframes typingPulse{
+    0%, 60%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* En movil quitamos la rotacion para que se vea recto */
+@media (max-width: 700px){
+    .phone-mockup{
+        transform: rotate(0deg);
+        max-width: 320px;
+    }
+    .whatsapp-features{
+        grid-template-columns: 1fr;
+    }
+}
+/* ═══════════════════════════════════════════════════════
+   FORMULARIO DE CONTACTO PREMIUM
+   ═══════════════════════════════════════════════════════ */
+
+.contacto-section{
+    background: linear-gradient(180deg, 
+        rgba(13, 13, 13, 0.95) 0%, 
+        rgba(5, 5, 5, 0.98) 100%);
+    border-left: none;
+    border-radius: 24px;
+    margin: 60px 20px;
+    padding: 60px 30px;
+    border: 1px solid rgba(255, 210, 31, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Resplandor amarillo decorativo de fondo */
+.contacto-section::before{
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 210, 31, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contacto-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 900px){
+    .contacto-container{
+        grid-template-columns: 1fr 1.1fr;
+        gap: 60px;
+        align-items: start;
+    }
+}
+
+/* ─── Columna izquierda: copy motivacional ─── */
+
+.contacto-titulo{
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-align: left;
+    border: none;
+    padding: 0;
+    margin: 16px 0 14px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+@media (min-width: 900px){
+    .contacto-titulo{
+        font-size: 44px;
+    }
+}
+
+.contacto-sub{
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.7;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 36px 0;
+}
+
+.contacto-puntos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contacto-punto{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.contacto-punto-icono{
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 210, 31, 0.15);
+    color: #FFD21F;
+    border: 1px solid rgba(255, 210, 31, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacto-punto strong{
+    display: block;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.contacto-punto p{
+    color: #aaaaaa;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+/* ─── Columna derecha: el formulario en si ─── */
+
+.contacto-form-wrapper{
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.04) 0%, 
+        rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 900px){
+    .contacto-form-wrapper{
+        padding: 40px 36px;
+    }
+}
+
+/* Override del estilo viejo del form */
+.contacto-form{
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.contacto-form-titulo{
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    text-align: left;
+    border: none;
+    padding: 0;
+}
+
+.contacto-form-sub{
+    color: #888;
+    font-size: 13px;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+/* Asterisco rojo para campos obligatorios */
+.obligatorio{
+    color: #ff4757;
+    font-weight: 800;
+}
+
+/* Cada grupo: label + input */
+.form-grupo{
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Override del label viejo */
+.contacto-form label{
+    display: block;
+    color: #e0e0e0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 7px;
+    text-align: left;
+    text-transform: none;
+}
+
+/* Override fuerte de los inputs/selects (que tienen estilos generales) */
+.contacto-form input,
+.contacto-form select{
+    width: 100%;
+    margin: 0;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.contacto-form input::placeholder{
+    color: #666;
+}
+
+/* Estado focus: borde amarillo y glow */
+.contacto-form input:focus,
+.contacto-form select:focus{
+    border-color: #FFD21F;
+    background: rgba(255, 210, 31, 0.05);
+    box-shadow: 0 0 0 3px rgba(255, 210, 31, 0.15);
+}
+
+/* Estado de validacion: si esta lleno y es valido, borde verde sutil */
+.contacto-form input:valid:not(:placeholder-shown),
+.contacto-form select:valid{
+    border-color: rgba(37, 211, 102, 0.4);
+}
+
+/* Estado invalido despues de tocarlo */
+.contacto-form input:invalid:not(:placeholder-shown):not(:focus){
+    border-color: rgba(255, 71, 87, 0.5);
+}
+
+/* Estilo especial para el select (la flecha) */
+.contacto-form select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23FFD21F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.contacto-form select option{
+    background: #111;
+    color: white;
+    padding: 10px;
+}
+
+/* Fila de 2 columnas (objetivo + horario) */
+.form-fila{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+@media (min-width: 600px){
+    .form-fila{
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+}
+
+/* Boton de envio - override del input[type=submit] viejo */
+.form-btn{
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px 24px;
+    background: linear-gradient(90deg, #FFD21F 0%, #FFC107 100%);
+    color: #050505;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(255, 210, 31, 0.3);
+}
+
+.form-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 210, 31, 0.45);
+    background: linear-gradient(90deg, #FFC107 0%, #FFD21F 100%);
+}
+
+.form-btn:active{
+    transform: translateY(-1px);
+}
+
+/* La flecha del boton se desplaza ligeramente al hover */
+.form-btn svg{
+    transition: transform 0.3s ease;
+}
+
+.form-btn:hover svg{
+    transform: translateX(4px);
+}
+
+/* Aviso de privacidad debajo del boton */
+.form-aviso{
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0;
+    margin: 16px 0 0 0;
 }
